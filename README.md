@@ -12,3 +12,18 @@ A simple web-based calculator built with HTML, CSS and JavaScript — ideal for 
 ---
 
 ## 📂 Project Structure
+
+---
+
+## 🛠️ Tech Stack
+- HTML  
+- CSS  
+- (Optional: JavaScript — if you add interactive behavior)  
+
+---
+
+## ⚙️ How to Use / Run
+
+1. Clone or download the repository:  
+   ```bash
+   git clone https://github.com/VinayakS404/001_calculator.git
