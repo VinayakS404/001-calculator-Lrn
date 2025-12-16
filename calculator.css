@@ -72,13 +72,13 @@ body{
 
 .calculation-p{
   border: none;
-  border-radius: 0px;
-  height: 58px;
+  height: 63px;
   display: block;
   width: 280px;
+  padding-bottom: 10px;
   text-align: right;
   margin: 0px;
-  font-size: 39px;
+  font-size: 53px;
   font-family: Segoe UI, Courier, monospace;
   overflow: hidden;
   color: rgb(137, 218, 253);
@@ -87,7 +87,6 @@ body{
 
 .answer-p{
   border: none;
-  border-radius: 0px;
   height: 42px;
   display: block;
   width: 280px;
@@ -124,3 +123,16 @@ body{
 .back-space-btn:active{
   background-image: url('delete-white.png');
 }
+.calculation-p-change-11{
+  border: none;
+  height: 63px;
+  display: block;
+  width: 280px;
+  padding-bottom: 10px;
+  text-align: right;
+  margin: 0px;
+  font-size: 45px;
+  font-family: Segoe UI, Courier, monospace;
+  overflow: hidden;
+  color: rgb(137, 218, 253);
+  white-space: nowrap;

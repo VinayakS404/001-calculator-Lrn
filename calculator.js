@@ -1,5 +1,5 @@
-  const calcJs = document.querySelector('.js-calculation-p');
-  const ansJs = document.querySelector('.js-answer-p');
+  const calcJsElt = document.querySelector('.js-calculation-p');
+  const ansJsElt = document.querySelector('.js-answer-p');
 
   const answers = {
     calcaltionText : '',
@@ -8,34 +8,42 @@
 
   function inputNumber(text){
     answers.calcaltionText += text
-    console.log(answers.calcaltionText)
+//    console.log(answers.calcaltionText)
+/*
     try{
       answers.currentAns = eval(x)
     }
     catch(e){
     }
-
-    console.log(answers.currentAns)
-    calcJs.innerText = answers.calcaltionText;
+*/
+    if( answers.calcaltionText.length >= 11){
+      calcJsElt.classList.remove('calculation-p')
+      calcJsElt.classList.add('calculation-p-change-11')
+    }
+    else{
+      calcJsElt.classList.add('calculation-p')
+      calcJsElt.classList.remove('calculation-p-change-11')
+    }
+    calcJsElt.innerText = answers.calcaltionText.replaceAll('*','x');
 
     try{
-      ansJs.innerText = eval(answers.calcaltionText);
+      ansJsElt.innerText = eval(answers.calcaltionText);
     }
-    catch(e){
-    }
-    
+    catch(e){}
   }
-  function calculationBtn(){
-    console.log(answers.calcaltionText)
-    calcJs.innerText = eval(answers.calcaltionText);
-    answers.calcaltionText = ''
-    ansJs.innerText = '';
 
+  function calculationBtn(){
+//    console.log(answers.calcaltionText)
+    calcJsElt.innerText = eval(answers.calcaltionText);
+    answers.calcaltionText = ''
+    ansJsElt.innerText = '';
+ //    calcJsElt.innerText = '123,123,123,123,123'
+ //    ansJsElt.innerText = '123,123,123,123,123'
   }
 
   function clearScreen(){
-    ansJs.innerText = '';
-    calcJs.innerText = '';
+    ansJsElt.innerText = '';
+    calcJsElt.innerText = '';
     answers.calcaltionText = '';
     answers.calcaltionText = '';
 
