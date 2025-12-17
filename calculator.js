@@ -8,9 +8,9 @@
 
   function inputNumber(text){
     if(answers.calcaltionText.length < 15){
-      answers.calcaltionText += text
+      addChar(text);
     }
-//      answers.calcaltionText = '123.123.123.123'
+//    answers.calcaltionText = '123.123.123.123'
 //    console.log(answers.calcaltionText)
 /*
     try{
@@ -21,31 +21,33 @@
 */
     
     if( answers.calcaltionText.length > 12){
-      calcJsElt.classList.remove('calculation-p')
-      calcJsElt.classList.remove('calculation-p-change-9')
-      calcJsElt.classList.add('calculation-p-change-12')
+      calcJsElt.classList.remove('calculation-p');
+      calcJsElt.classList.remove('calculation-p-change-9');
+      calcJsElt.classList.add('calculation-p-change-12');
     }
     else if( answers.calcaltionText.length > 9){
-      calcJsElt.classList.remove('calculation-p')
-      calcJsElt.classList.add('calculation-p-change-9')
+      calcJsElt.classList.remove('calculation-p');
+      calcJsElt.classList.add('calculation-p-change-9');
     }
     else{
-      calcJsElt.classList.add('calculation-p')
-      calcJsElt.classList.remove('calculation-p-change-9')
-      calcJsElt.classList.remove('calculation-p-change-12')
+      calcJsElt.classList.add('calculation-p');
+      calcJsElt.classList.remove('calculation-p-change-9');
+      calcJsElt.classList.remove('calculation-p-change-12');
     }
     calcJsElt.innerText = answers.calcaltionText.replaceAll('*','x');
 
     try{
-      changeUndefined()
+      changeUndefined();
     }
-    catch(e){}
+    catch(e){
+      return;
+    }
   }
 
   function calculationBtn(){
 //    console.log(answers.calcaltionText)
     calcJsElt.innerText = eval(answers.calcaltionText);
-    answers.calcaltionText = ''
+    answers.calcaltionText = '';
     ansJsElt.innerText = '';
  //    calcJsElt.innerText = '123,123,123,123,123'
  //    ansJsElt.innerText = '123,123,123,123,123'
@@ -61,13 +63,15 @@
 
   function deleteChar(){
     answers.calcaltionText = answers.calcaltionText.slice(0,answers.calcaltionText.length-1);
-    console.log(answers.calcaltionText)
+    //console.log(answers.calcaltionText);
 
     calcJsElt.innerText = answers.calcaltionText;
     try{
-      changeUndefined()
+      changeUndefined();
     }
-    catch(e){}
+    catch(e){
+      return;
+    }
   }
 
   function changeUndefined(){
@@ -77,4 +81,29 @@
     else{
       ansJsElt.innerText = eval(answers.calcaltionText);
     }
+  }
+
+  function addChar(text){
+    const signAry = ['/','*','-','+'];
+    const withSign = ['/','*'];
+
+    if(((answers.calcaltionText === '' || answers.calcaltionText === '-' || answers.calcaltionText === '+') && withSign.includes(text))){
+      return;
+      //nothing :)
+    }
+    else{
+      if(signAry.includes(answers.calcaltionText.at(-1))&& signAry.includes(text)){
+        answers.calcaltionText = answers.calcaltionText.slice(0,answers.calcaltionText.length-1)+text;
+      }
+      else if(answers.calcaltionText.at(-1) === '.' && text === '.'){
+        return;
+      }
+      else if(answers.calcaltionText.at(-1) === '.' && text === '.'){
+        
+      }
+      else{
+        answers.calcaltionText += text;
+      }
+    }
+    
   }
