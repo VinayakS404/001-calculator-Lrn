@@ -6,9 +6,21 @@
     currentAns : ''
   }  
 
+  let bracketAry = [];
+  let noBrackets = 0;
+  const numAry = ['0','1','2','3','4','5','6','7','8','9'];
+
   function inputNumber(text){
     if(answers.calcaltionText.length < 15){
-      addChar(text);
+      if(text === '*' && answers.calcaltionText.at(-1) === '('){
+        return
+      }
+      else if (numAry.includes(text) && answers.calcaltionText.at(-1) === ')'){
+        addChar('*'+text);
+      }
+      else{
+        addChar(text);
+      }
     }
 //    answers.calcaltionText = '123.123.123.123'
 //    console.log(answers.calcaltionText)
@@ -36,12 +48,7 @@
     }
     calcJsElt.innerText = answers.calcaltionText.replaceAll('*','x');
 
-    try{
-      changeUndefined();
-    }
-    catch(e){
-      return;
-    }
+    answersCalcPrint();
   }
 
   function calculationBtn(){
@@ -58,20 +65,15 @@
     calcJsElt.innerText = '';
     answers.calcaltionText = '';
     answers.calcaltionText = '';
-
+    noBrackets = 0;
+    bracketAry.length = 0;
   }
 
   function deleteChar(){
     answers.calcaltionText = answers.calcaltionText.slice(0,answers.calcaltionText.length-1);
     //console.log(answers.calcaltionText);
-
-    calcJsElt.innerText = answers.calcaltionText;
-    try{
-      changeUndefined();
-    }
-    catch(e){
-      return;
-    }
+    calcJsElt.innerText = answers.calcaltionText.replaceAll('*','x');
+    answersCalcPrint();
   }
 
   function changeUndefined(){
@@ -87,23 +89,64 @@
     const signAry = ['/','*','-','+'];
     const withSign = ['/','*'];
 
-    if(((answers.calcaltionText === '' || answers.calcaltionText === '-' || answers.calcaltionText === '+') && withSign.includes(text))){
+    if(((answers.calcaltionText === '' || 
+      answers.calcaltionText === '-' || 
+      answers.calcaltionText === '+') && withSign.includes(text))){
       return;
       //nothing :)
     }
     else{
-      if(signAry.includes(answers.calcaltionText.at(-1))&& signAry.includes(text)){
+      if(signAry.includes(answers.calcaltionText.at(-1)) && signAry.includes(text)){
         answers.calcaltionText = answers.calcaltionText.slice(0,answers.calcaltionText.length-1)+text;
+        //  avoid <-+/x> together
       }
       else if(answers.calcaltionText.at(-1) === '.' && text === '.'){
         return;
       }
-      else if(answers.calcaltionText.at(-1) === '.' && text === '.'){
-        
-      }
       else{
         answers.calcaltionText += text;
+        //add char
       }
     }
     
+  }
+function BracketsOnclick() {
+  const lastChar = answers.calcaltionText.at(-1);
+
+  
+/* if(lastChar === ')' || numAry.includes(lastChar)){
+    addChar('*');
+  }
+*/
+  if (
+    noBrackets === 0 ||
+    lastChar === '(' ||
+    ['+','-','*','/'].includes(lastChar)
+  ) {
+    if(lastChar === ')'){
+      addChar('*');
+    }
+    addChar('(');
+    noBrackets++;
+  }
+  else if (numAry.includes(lastChar) && noBrackets > 0) {
+
+    addChar(')');
+    noBrackets--;
+  }
+
+  console.log(noBrackets)
+
+  calcJsElt.innerText = answers.calcaltionText.replaceAll('*','x');
+  ansJsElt.innerText = eval(answers.calcaltionText);
+}
+
+  function answersCalcPrint(){   
+      
+    try{
+      changeUndefined();
+    }
+    catch(e){
+      return;
+    }
   }

@@ -7,10 +7,42 @@
 </head>
 <body>
   <script>
-    const x = 'abc*xy*z';
-//    console.log(x);
+   let a ='abcdefg'
 
-    console.log(x.replaceAll('*','X'))
+
+
+function BracketsOnclick(){
+    const numAry = ['0','1','2','3','4','5','6','7','8','9'];
+
+    if(noBrackets === 0){
+      calcJsElt.innerText = answers.calcaltionText += '(';
+      noBrackets++;
+    }
+    else if(answers.calcaltionText.at(-1) === '('){
+      calcJsElt.innerText = answers.calcaltionText += '(';
+      noBrackets++;
+    }
+
+    let i = 0;
+    while(i < answers.calcaltionText.length){
+      if(answers.calcaltionText[i] === '('){
+        bracketAry.push(i);
+      }
+      i++;
+    }
+  
+    console.log(answers.calcaltionText.slice(bracketAry.at(-1)))
+
+    if(numAry.includes(answers.calcaltionText.slice(bracketAry.at(-1)).at(-1))){
+      calcJsElt.innerText = answers.calcaltionText += ')';
+      noBrackets--;
+      bracketAry = bracketAry.slice(-1,1);
+    }
+
+   
+    console.log(bracketAry)
+    //console.log(noBrackets)
+  }
 
 
   </script>
