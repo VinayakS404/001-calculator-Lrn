@@ -1,6 +1,6 @@
 # 001_calculator
 
-A simple web-based calculator built with HTML, CSS and JavaScript — ideal for basic arithmetic operations via a clean user interface.
+A web-based calculator built with HTML, CSS, and JavaScript. Supports basic arithmetic, nested brackets, auto-multiplication, and live result preview. Ideal for learning and simple calculations in the browser.
 
 ---
 
