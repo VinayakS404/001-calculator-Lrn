@@ -8,6 +8,7 @@ A simple web-based calculator built with HTML, CSS and JavaScript — ideal for 
 - Basic arithmetic operations: addition, subtraction, multiplication, division  
 - Clean and minimal UI (calculator.html + calculator.css)  
 - Easy to use in browser — no dependencies or build step required
+- 
 
 ---
 
@@ -18,7 +19,7 @@ A simple web-based calculator built with HTML, CSS and JavaScript — ideal for 
 ## 🛠️ Tech Stack
 - HTML  
 - CSS  
-- (Optional: JavaScript — if you add interactive behavior)  
+- JS
 
 ---
 
