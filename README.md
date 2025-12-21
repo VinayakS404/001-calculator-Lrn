@@ -40,6 +40,3 @@ A simple web-based calculator built with HTML, CSS and JavaScript — ideal for 
 - Includes **license & contributing guideline placeholders**, which are good for open-source hygiene. :contentReference[oaicite:2]{index=2}  
 
 ---
-
-If you like — I can **generate 2 variants** of README for your repo: one **basic** (just minimal) and one **detailed with screenshot, future-plan, and contributing guidelines** — you pick what you prefer. Do you want me to build those for you now?
-::contentReference[oaicite:3]{index=3}
