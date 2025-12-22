@@ -52,12 +52,20 @@ A web-based calculator built with HTML, CSS, and JavaScript. Supports basic arit
 
 ---
 
-### ✅ Why this README works well
+###📌 License
 
-- It gives a clear **project title and short description** (what the project is, what it does). :contentReference[oaicite:1]{index=1}  
-- Lists the **features** so visitors quickly know what the calculator supports.  
-- Describes **how to run/ use** the project (no dependencies — just open the HTML). That’s especially useful for a simple static-site project.  
-- Mentions **project structure** so someone new to the repo can understand what each file is for.  
-- Includes **license & contributing guideline placeholders**, which are good for open-source hygiene. :contentReference[oaicite:2]{index=2}  
+MIT License — free to use and modify.
+
+---
+
+###📝 Future Plans
+
+- Replace eval() with a safe parser
+
+- Add keyboard input support
+
+- Add history feature for previous calculations
+
+- Theme customization (light/dark mode)
 
 ---
