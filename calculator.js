@@ -9,6 +9,7 @@
   let bracketAry = [];
   let noBrackets = 0;
   const numAry = ['0','1','2','3','4','5','6','7','8','9'];
+  let bracketPlace = false;
 
   function inputNumber(text){
     if(answers.calcaltionText.length < 15){
@@ -96,11 +97,18 @@
       //nothing :)
     }
     else{
+      
+//      checkBracketPlace(text);
+
       if(signAry.includes(answers.calcaltionText.at(-1)) && signAry.includes(text)){
         answers.calcaltionText = answers.calcaltionText.slice(0,answers.calcaltionText.length-1)+text;
         //  avoid <-+/x> together
       }
       else if(answers.calcaltionText.at(-1) === '.' && text === '.'){
+        bracketPlace == false;
+        return;
+      }
+      else if (text === '.' && bracketPlace){
         return;
       }
       else{
@@ -165,4 +173,24 @@ function BracketsOnclick() {
     calcJsElt.innerText = answers.calcaltionText.replaceAll('*','x');
     answersCalcPrint();
     }
+  } 
+
+  function checkBracketPlace(text){
+    i = -1;
+
+    let limit = -(answers.calcaltionText.length);
+
+    
+      if((answers.calcaltionText === '' && text === '.')
+        || answers.calcaltionText.at(-1) === '('){
+        answers.calcaltionText = answers.calcaltionText + '0' + text;
+      }
+    
+    while(i >= limit){
+      if(answers.calcaltionText.at(-1) === ')')
+        console.log('hi')
+      i--; 
+      }
+
+    i--; 
   }
