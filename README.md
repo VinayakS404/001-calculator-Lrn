@@ -43,17 +43,3 @@ A web-based calculator built with HTML, CSS, and JavaScript. Supports basic arit
 - JavaScript (ES2022+)
 
 ---
-
-## ⚙️ How to Use / Run
-
-1. Clone or download the repository:  
-   ```bash
-   git clone https://github.com/VinayakS404/001_calculator.git
-
----
-
-###📌 License
-
-MIT License — free to use and modify.
-
----
